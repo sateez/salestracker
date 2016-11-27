@@ -1,0 +1,89 @@
+#grid {
+    box-shadow: 0 0 15px;
+    padding: 10px;
+    .grid-row {
+        width: 100%;
+        margin-top: 5px;
+        display: table;
+        position: relative;
+        left: 4%;
+        width: 95%;
+        margin-bottom: 10px;
+        .grid-row-column {
+            display: table-cell;
+            line-height: 100px;
+            vertical-align: middle;
+        }
+        .grid-header-row-column {
+            display: table-cell;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .grid-row-column.column-image {
+            img {
+                height: 90px;
+                width: 100px;
+                &:hover {
+                    /*height: 200px;
+                width: 200px;
+                position:relative;
+                transition: all .3s ease-in-out;*/
+                }
+            }
+        }
+    }
+    #grid-content {
+        max-height: 350px;
+        overflow: auto;
+        .grid-row {
+            box-shadow: 0 0 15px;
+        }
+        .analytics {
+            height: 450px;
+            width: 95%;
+            position: relative;
+            left: 2.5%;
+            box-shadow: 0 0 15px;
+            transition: height .3s ease-in-out;
+            .line-chart-container {
+                height: 420px;
+                width: 700px;
+                padding: 10px;
+            }
+        }
+        .analytics.zero-height {
+            height: 0;
+            overflow: hidden;
+        }
+    }
+}
+
+.car-info,
+.car-sales-info,
+.sales-info-section,
+.personal-info-section,
+.mix-chart-container,
+.polar-chart-container,
+.bar-chart-container,
+.pie-chart-container {
+    box-shadow: 0 0 15px;
+    padding: 0 5px;
+}
+
+.car-info,
+.car-sales-info {
+    height: 200px;
+    .model-image {
+        height: 180px;
+        width: 180px;
+        margin: 10px;
+    }
+}
+
+.sales-info-section,
+.personal-info-section {
+    height: 150px;
+}
