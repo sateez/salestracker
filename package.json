@@ -1,9 +1,13 @@
 {
-  "name": "Audi sale tracking ",
-  "version": "5.0.0",
+  "name": "salestracker",
+  "version": "1.0.0",
   "description": "Sales tracking app with React and Redux",
+  "main": "webpack.config.dev.js",
   "engines": {
     "npm": ">=3"
+  },
+  "directories": {
+    "doc": "docs"
   },
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
@@ -27,8 +31,12 @@
     "open:cover": "npm run test:cover && open coverage/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
   },
-  "author": "Cory House",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sateez/salestracker.git"
+  },
+  "author": "sateesh jagan kanugula",
+  "license": "ISC",
   "dependencies": {
     "chart.js": "1.1.1",
     "object-assign": "4.1.0",
@@ -118,8 +126,8 @@
     "boilerplate",
     "starter"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sateez/salestracker"
-  }
+  "bugs": {
+    "url": "https://github.com/sateez/salestracker/issues"
+  },
+  "homepage": "https://github.com/sateez/salestracker#readme"
 }
