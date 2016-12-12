@@ -5,11 +5,13 @@ import * as actions from '../actions/carActions';
 import Overview from '../Components/Overview';
 import FullOverview from '../Components/FullOverview';
 import toastr from 'toastr';
+import _ from 'lodash';
 class OverviewPage extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.onSave = this.onSave.bind(this);
         this.updateCarState = this.updateCarState.bind(this);
+        this.totalCarsInfo = this.totalCarsInfo.bind(this);
         this.state = {
             car: Object.assign({}, this.props.car),
             errors: {}
@@ -22,6 +24,50 @@ class OverviewPage extends React.Component {
     //         console.log('update new props:--->');
     //     }
     // }
+    totalCarsInfo() {
+        if (!this.props || !this.props.cars || !this.props.cars.length > 0) {
+            return {
+                totalCarsSold: 0,
+                totalRevenue: 0,
+                highestModel: '-',
+                leastModel: '-',
+                highestSalesMonth: '-'
+            }
+        }    
+       let months = ['June','July','August','September','October','November'],
+         totalCarsSold = 0,
+            totalRevenue = 0,
+            highestModel = 0,
+            leastModel = 0,
+            highestSalesMonth = ""
+        _.forOwn(this.props.cars, function (car,index) {
+            console.log('car in full overview :--->', car, index);
+            let carRevenue = 0,
+                carSold=0;
+            _.forOwn(car.sales.last6MonthSales, function (sales) {
+                totalCarsSold = totalCarsSold + sales;
+                carSold = carSold + sales;
+            })
+            _.forOwn(car.sales.last6MonthRevenue, function (revenue) {
+                totalRevenue = totalRevenue + revenue;
+                carRevenue = carRevenue + revenue;
+            })
+            if (carSold > highestModel) highestModel = index;
+            if (leastModel === 0)
+                leastModel = index;
+            else if(carSold < leastModel)
+                leastModel = index;
+            if (carRevenue > highestSalesMonth) highestSalesMonth = index;
+        })
+
+        return {
+            totalCarsSold :totalCarsSold,
+            totalRevenue :totalRevenue,
+            highestModel :this.props.cars[highestModel].title,
+            leastModel :this.props.cars[leastModel].title,
+            highestSalesMonth :months[highestSalesMonth]
+        }
+    }
     updateCarState(event) {
         const field = event.target.name;
         let car = this.state.car;
@@ -46,14 +92,14 @@ class OverviewPage extends React.Component {
     }
     render() {
         console.log('overview props:--->', this.props);
-        const {car} = this.props;
+        const {car,cars} = this.props;
         if (this.props.params.id) {
             return (
-                <Overview car={car} />
+                <Overview car={car} cars={cars} totalCarsInfo={this.totalCarsInfo()}/>
             )
         } else {
             return (
-                <FullOverview cars={this.props.cars} />
+                <FullOverview cars={cars} totalCarsInfo={this.totalCarsInfo()}/>
             )
         }
 

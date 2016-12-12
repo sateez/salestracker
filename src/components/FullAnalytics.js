@@ -32,12 +32,12 @@ class FullAnalytics extends React.Component {
         let sales = [];
         if (cars && cars.length > 0) {
             let saleTotal = 0;
-            for (let i = 0; i < months; i++) {
+            for (let i = 0; i < months; i++) {                
+                saleTotal = 0;
                 for (let j = 0; j < cars.length; j++) {
                     saleTotal = saleTotal + cars[j].sales[type][i];
                 }
                 sales.push(saleTotal);
-                saleTotal = 0;
             }
             console.log('getLast6MonthDetail:--->', sales);
             return sales;

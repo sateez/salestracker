@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import '../styles/car-details.scss';
 import Analytics from './Analytics';
 import { Link } from 'react-router';
 class CarDetails extends React.Component {
