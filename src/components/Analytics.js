@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
-import LineChartCust from './LineChartCust';
-import PolarAreaCust from './PolarAreaCust';
-import MixChartCust from './MixChartCust';
+import LineChartCust from './charts/LineChartCust';
 class Analytics extends React.Component{
     constructor(props,context) {
         super(props, context);

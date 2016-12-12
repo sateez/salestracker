@@ -5,7 +5,9 @@ $vin-green: #60b044;
 $vin-red: #ff0000;
 
 /* Styles */
-
+html{
+    height:100%;
+}
 body {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.4em;
@@ -15,6 +17,8 @@ body {
     -moz-font-smoothing: antialiased;
     font-smoothing: antialiased;
     font-weight: 300;
+    overflow:hidden;
+    height:100%;
 }
 *{
     font-family: 'Open Sans', sans-serif;
@@ -22,6 +26,12 @@ body {
 
 #app {
     height: 100%;
+    box-sizing: border-box;
+    overflow:hidden;
+    & > div{
+        height: 100%;
+        overflow:hidden;
+    }
 }
 
 td {
@@ -47,7 +57,9 @@ input.small {
 td.fuel-savings-label {
     width: 175px;
 }
-
+.alt-header {
+  color: green;
+}
 
 #main-logo {
     height: 70px;
@@ -76,13 +88,18 @@ td.fuel-savings-label {
     top: 18px;
 }
 
-.navbar.navbar-default {
+.navbar.navbar-default {    
     box-shadow: 0 0 15px;
 }
-
+#content-area{
+    box-shadow: 0 0 15px;
+    height: calc(100% - 100px);
+    overflow:auto;
+    margin: 5px;
+}
 #dashboard {
     box-shadow: 0 0 15px;
-    height: 550px;
+    /*height:calc(100% - 50px);*/
     background-image: url(http://www.designbolts.com/wp-content/uploads/2013/02/Grunge-Seamless-Pattern-For-Website-Background.jpg);
     .column-layout.three-column {
         box-sizing: border-box;
@@ -122,9 +139,103 @@ td.fuel-savings-label {
     padding:5px;
 }
 
-.my-audi.full-overview,.my-audi.overview,.about-us,.new-car-form{
+.my-audi.full-overview,.my-audi.overview{
     box-shadow:0 0 15px;
-    height:550px;
+    /*height:calc(100% - 50px);*/
     overflow:auto;
     padding: 10px;
+}
+#grid {
+    /*box-shadow: 0 0 15px;*/
+    padding: 10px;
+    .grid-row {
+        width: 100%;
+        margin-top: 5px;
+        display: table;
+        position: relative;
+        left: 4%;
+        width: 95%;
+        margin-bottom: 10px;
+        .grid-row-column {
+            display: table-cell;
+            line-height: 100px;
+            vertical-align: middle;
+        }
+        .grid-header-row-column {
+            display: table-cell;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .grid-row-column.column-image {
+            img {
+                height: 90px;
+                width: 100px;
+                &:hover {
+                    /*height: 200px;
+                width: 200px;
+                position:relative;
+                transition: all .3s ease-in-out;*/
+                }
+            }
+        }
+    }
+    #grid-content {
+        /*max-height: 350px;*/
+        overflow: auto;
+        .grid-row {
+            box-shadow: 0 0 15px;
+        }
+        .analytics {
+            /*height: 450px;*/
+            width: 95%;
+            position: relative;
+            left: 3%;
+            box-shadow: 0 0 15px;
+            transition: height .3s ease-in-out;
+            .line-chart-container {
+                /*height: 420px;
+                width: 700px;*/
+                padding: 10px;
+            }
+        }
+        .analytics.zero-height {
+            height: 0;
+            overflow: hidden;
+        }
+    }
+}
+
+.car-info,
+.car-sales-info,
+.sales-info-section,
+.personal-info-section,
+.mix-chart-container,
+.polar-chart-container,
+.bar-chart-container,
+.pie-chart-container {
+    box-shadow: 0 0 15px;
+    padding: 0 5px;
+}
+
+.car-info,
+.car-sales-info {
+    height: 200px;
+    .model-image {
+        height: 180px;
+        width: 180px;
+        margin: 10px;
+    }
+}
+
+.sales-info-section,
+.personal-info-section {
+    height: 150px;
+    .profile-image{
+        img{
+            height:150px;
+        }
+    }
 }

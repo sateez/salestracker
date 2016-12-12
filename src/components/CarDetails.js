@@ -22,12 +22,12 @@ class CarDetails extends React.Component {
                     <div className='grid-row-column column-title col-sm-2'>{this.props.title} </div>
                     <div className='grid-row-column column-code col-sm-1'>{this.props.cid} </div>
                     <div className='grid-row-column  col-sm-2'>
-                        <div className='grid-row-column column-est-daily col-sm-6'>{this.props.estSalesDaily}</div>
-                        <div className='grid-row-column column-est-monthly col-sm-6'>{this.props.estSalesMonthly}</div>
+                        <div className='grid-row-column text-center column-est-daily col-sm-6'>{this.props.estSalesDaily}</div>
+                        <div className='grid-row-column text-center column-est-monthly col-sm-6'>{this.props.estSalesMonthly}</div>
                     </div>
                     <div className='grid-row-column col-sm-2'>
-                        <div className='grid-row-column column-est-rev-unit col-sm-6'>{this.props.estRevenuePerUnit}</div>
-                        <div className='grid-row-column column-est-rev-monthly col-sm-6'>{this.props.estRevenuePerMonth}</div>
+                        <div className='grid-row-column text-center column-est-rev-unit col-sm-6'>{this.props.estRevenuePerUnit}</div>
+                        <div className='grid-row-column text-center column-est-rev-monthly col-sm-6'>{this.props.estRevenuePerMonth}</div>
                     </div>
                     <div className='grid-row-column column-goto col-sm-1' title={this.props.title + ' overview'}>
                         <Link to={'overview/' + this.props.cid}> <button className='btn btn-primary' ><i className="fa fa-arrow-circle-right" aria-hidden="true"></i></button></Link>
@@ -39,7 +39,7 @@ class CarDetails extends React.Component {
 
                 </div>
                 <div className={this.state.showAnalytics ? 'analytics' : 'zero-height analytics'}>
-                    <Analytics sales={this.props.sales} />
+                    <Analytics sales={this.props.sales} carName={this.props.title} />
                 </div>
             </div>
         )

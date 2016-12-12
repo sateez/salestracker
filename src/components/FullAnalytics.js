@@ -1,6 +1,6 @@
 import React from 'react';
-import MixChartCust from './MixChartCust';
-import PolarAreaCust from './PolarAreaCust';
+import MixChartCust from './charts/MixChartCust';
+import PolarAreaCust from './charts/PolarAreaCust';
 class FullAnalytics extends React.Component {
     constructor(props, context) {
         super(props, context);

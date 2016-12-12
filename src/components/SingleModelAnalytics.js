@@ -1,6 +1,6 @@
 import React from 'react';
-import BarChartCust from './BarChartCust';
-import PieChartCust from './PieChartCust';
+import BarChartCust from './charts/BarChartCust';
+import PieChartCust from './charts/PieChartCust';
 class SingleModelAnalytics extends React.Component {
     constructor(props, context) {
         super(props, context);
